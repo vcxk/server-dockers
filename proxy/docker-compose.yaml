@@ -1,0 +1,9 @@
+version: '3.7'
+
+services:
+  proxy:
+    image: gproxy:cxk
+    ports:
+    - 3800:3800
+    restart: unless-stopped
+    command: ["socks","-t","tcp","-p","0.0.0.0:3800"]
