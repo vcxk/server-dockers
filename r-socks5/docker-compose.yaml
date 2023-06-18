@@ -1,0 +1,9 @@
+version: '3.9'
+
+services:
+  r-socks5:
+    build: ./
+    restart: unless-stopped
+    ports:
+      - 1080:1010
+    
