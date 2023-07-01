@@ -5,5 +5,5 @@ services:
     build: ./
     restart: unless-stopped
     ports:
-      - 1080:1010
+      - 3081:1010
     
