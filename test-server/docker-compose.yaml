@@ -23,15 +23,15 @@ services:
       - ./pgadmin:/var/lib/pgadmin
     depends_on:
       - db
-  mqtt:
-    image: emqx:5.0.26
-    ports:
-      - 1883:1883
-      - 9001:9001
-    volumes:
-      - ./emqx/data:/opt/emqx/data
-      # - ./emqx/etc:/opt/emqx/etc 
-      - ./emqx/log:/opt/emqx/log
+  # mqtt:
+  #   image: emqx:5.0.26
+  #   ports:
+  #     - 1883:1883
+  #     - 9001:9001
+  #   volumes:
+  #     - ./emqx/data:/opt/emqx/data
+  #     # - ./emqx/etc:/opt/emqx/etc 
+  #     - ./emqx/log:/opt/emqx/log
   redis:
     image: redis:7.2
     restart: unless-stopped
@@ -39,3 +39,12 @@ services:
       - 6379:6379
     volumes:
       - ./redis:/data 
+  mosquitto:
+    image: eclipse-mosquitto 
+    ports:
+      - 1883:1883 
+      - 9001:9001
+    volumes:
+      - ./mosquitto/data:/mosquitto/data
+      - ./mosquitto/log:/mosquitto/log 
+      - ./mosquitto/config/mosquitto/config 
