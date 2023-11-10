@@ -23,6 +23,13 @@ services:
       - ./pgadmin:/var/lib/pgadmin
     depends_on:
       - db
+  redis:
+    image: redis:7.2
+    restart: unless-stopped
+    ports:
+      - 6379:6379
+    volumes:
+      - ./redis:/data 
   mqtt:
     image: emqx:nanomq:latest
     restart: unless-stopped
@@ -31,4 +38,3 @@ services:
       - 8083:8083
     volumes:
       - ./nanomq/nanomq.conf:/etc/nanomqt.conf
-
