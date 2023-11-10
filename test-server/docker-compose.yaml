@@ -31,7 +31,7 @@ services:
     volumes:
       - ./redis:/data 
   mqtt:
-    image: emqx:nanomq:latest
+    image: emqx/nanomq:latest
     restart: unless-stopped
     ports:
       - 1883:1883
