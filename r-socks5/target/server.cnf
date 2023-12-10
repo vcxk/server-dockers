@@ -1,0 +1,27 @@
+
+[ req ]
+default_bits       = 2048
+distinguished_name = req_distinguished_name
+req_extensions     = req_ext
+ 
+[ req_distinguished_name ]
+countryName                 = Country Name (2 letter code)
+countryName_default         = CN
+stateOrProvinceName         = ShangHai
+stateOrProvinceName_default = ShangHai
+localityName                = Locality Name (eg, city)
+localityName_default        = ShangHai
+organizationName            = Organization Name (eg, company)
+organizationName_default    = dai
+commonName                  = Common Name (e.g. server FQDN or YOUR name)
+commonName_max              = 64
+commonName_default          = server.toolbox
+ 
+[ req_ext ]
+subjectAltName = @alt_names
+ 
+[alt_names]
+
+IP.1    = 127.0.0.1
+IP.2    = 2406:da18:c34:6d00:2b8f:c8b7:8cc9:4017
+DNS.1     = *.vcxk.fun

@@ -1,9 +1,26 @@
 version: '3.9'
 
 services:
-  r-socks5:
+  socks5:
     build: ./
     restart: unless-stopped
+    # ports:
+    #   - 3081:1010
+  s: 
+    image: nginx:alpine
+    restart: unless-stopped
+    volumes:
+      - ./target:/ca
+      - ./nginx.s.conf:/etc/nginx/nginx.conf
     ports:
-      - 3081:1010
-    
+      - 1992:1992
+    depends_on:
+      - socks5
+  c: 
+    image: nginx:alpine 
+    volumes:
+      - ./target:/ca 
+      - ./nginx.c.conf:/etc/nginx/nginx.conf 
+    ports:
+      - 1992:1992   
+

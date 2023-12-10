@@ -20,7 +20,7 @@ services:
     ports:
       - 15432:80
     volumes:
-      - ./pgadmin:/var/lib/pgadmin
+      - v-pgadmin:/var/lib/pgadmin
     depends_on:
       - db
   redis:
@@ -38,3 +38,6 @@ services:
       - 8083:8083
     # volumes:
     #   - ./nanomq/nanomq.conf:/etc/nanomqt.confabcd
+
+volumes:
+  v-pgadmin: {}
