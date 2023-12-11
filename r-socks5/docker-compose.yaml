@@ -18,6 +18,7 @@ services:
       - socks5
   c: 
     image: nginx:alpine 
+    restart: unless-stopped
     volumes:
       - ./target:/ca 
       - ./nginx.c.conf:/etc/nginx/nginx.conf 
