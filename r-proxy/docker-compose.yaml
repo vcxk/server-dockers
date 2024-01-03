@@ -6,7 +6,7 @@ services:
     restart: unless-stopped
     # ports:
     #   - 3081:1010
-  httpp:
+  http:
     build: ./http
     restart: unless-stopped
   s: 
@@ -20,6 +20,7 @@ services:
       - 2024:2024
     depends_on:
       - socks5
+      - http 
   c: 
     image: nginx:alpine 
     restart: unless-stopped
