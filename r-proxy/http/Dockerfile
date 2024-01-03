@@ -1,4 +1,4 @@
-FROM alpine:3.19
+FROM debian
 
 COPY ./rust_http_proxy /rust_http_proxy
 
