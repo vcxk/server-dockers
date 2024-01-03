@@ -2,10 +2,13 @@ version: '3.9'
 
 services:
   socks5:
-    build: ./
+    build: ./socks5
     restart: unless-stopped
     # ports:
     #   - 3081:1010
+  httpp:
+    build: ./http
+    restart: unless-stopped
   s: 
     image: nginx:alpine
     restart: unless-stopped
@@ -14,6 +17,7 @@ services:
       - ./nginx.s.conf:/etc/nginx/nginx.conf
     ports:
       - 1992:1992
+      - 2024:2024
     depends_on:
       - socks5
   c: 
@@ -24,4 +28,4 @@ services:
       - ./nginx.c.conf:/etc/nginx/nginx.conf 
     ports:
       - 1992:1992   
-
+      - 2024:2024
