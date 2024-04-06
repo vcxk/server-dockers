@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  gitea:
+    image: gitea/gitea:1.21.10-rootless
+    volumes:
+      - ../data/gitea:/var/lib/gitea
+    ports:
+      - 3000:3000
+      - 2222:2222

@@ -1,4 +1,6 @@
 test-server
 !*/.gitkeep
 !*/docker-compose.yaml
+data/*
+!data/.gitkeep 
 
